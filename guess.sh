@@ -1,17 +1,15 @@
 echo "Welcome to the guessing game!"
 
-echo "Place your bet between 0 and 10: "
+echo "Place your bet between 0 and 100: "
 
-read VAR
+read guess
 
-secret=4
+secret=$((RANDOM%100))
 
-if [[ $VAR -gt $secret ]]
-then
-	echo "Too high!"
-elif [[ $VAR -lt $secret ]]
-then
-	echo "Too low"
-else 
-	echo "Correct!"
-fi
+while [ $guess != $secret ]
+do 
+	echo "Try again!"
+read guess
+	done
+echo "Correct! The number was $secret!"
+
